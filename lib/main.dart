@@ -1,4 +1,5 @@
-import 'package:all_basicf/homepage.dart';
+import 'package:all_basicf/pages/homepage.dart';
+import 'package:all_basicf/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.red),
+      //darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
